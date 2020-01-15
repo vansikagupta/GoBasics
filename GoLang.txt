@@ -1,0 +1,21 @@
+* Compiled language like C.	Minimalistic Features.	Procedural Language.	language of the WEB. 
+* Concurrency and straight code. Go routine
+* Garbage Collector.
+* Go tools : Go FMT - to format your code, Go FIX - to update your code (version wise - syntax or API updates)
+* Node favours performance over reusability over robustness. On  the other hand go is robust, performs better, easier to maintain.
+
+## BASICS
+
+** Packages : package name -> current file's package name.
+single imports : import "fmt"
+multiple imports :
+	import(
+	"fmt"
+	"math"
+	)
+* Names starting with capital letter are exported. Only exported names can be refered, when importing a package. Ex : Pi is exported in math package, so it can be refered, used, when importing math package. math.Pi
+
+** Functions : func func_name(parameters) return-type {body}
+*  #### Function can return any number of results. 
+* assignment x := 10   a, b := 2, 3
+* named return values 

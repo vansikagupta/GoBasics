@@ -1,0 +1,6 @@
+* Used for scalability, efficiency and speeed.
+* Since it is compiled language and low level, it is fast.
+* Memory level handling is made convenient by garbage collection.
+* Most beautiful thing is ease of concurrency : need of modern day multi-proccessors.
+* It is statically typed, that is type of variables is defined and fixed.
+* Type inference is there, so at the time of declarartion + Initiallisation, you can omit type declarartion.
