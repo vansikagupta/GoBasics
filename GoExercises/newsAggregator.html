@@ -1,0 +1,21 @@
+<head>
+</head>
+<body>
+<h1>{{ .Title}}</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{range $idx, $item := .Item}}
+		<tr>
+			<td><a href="{{$item.Link}}" target='_blank'>{{$item.Title}}</a></td>
+			<td>{{$item.Desc}}</td>
+		</tr>
+		{{end}}
+	</tbody>
+</table>
+</body>

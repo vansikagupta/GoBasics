@@ -1,0 +1,5 @@
+* we use panic to throw errors when some erroneous  situation arises
+* we use recover to handle that error in on eof the defered functions
+
+7d3b57a788f043a6ad219ccf7ae2ac03
+Your API key is: 7d3b57a788f043a6ad219ccf7ae2ac03

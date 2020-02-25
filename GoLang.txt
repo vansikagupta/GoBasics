@@ -1,8 +1,15 @@
+## INTRO
+
 * Compiled language like C.	Minimalistic Features.	Procedural Language.	language of the WEB. 
 * Concurrency and straight code. Go routine
 * Garbage Collector.
 * Go tools : Go FMT - to format your code, Go FIX - to update your code (version wise - syntax or API updates)
 * Node favours performance over reusability over robustness. On  the other hand go is robust, performs better, easier to maintain.
+
+
+## HOW TO RUN
+
+* go fmt : format code, go test : run tests, 
 
 ## BASICS
 
@@ -16,6 +23,42 @@ multiple imports :
 * Names starting with capital letter are exported. Only exported names can be refered, when importing a package. Ex : Pi is exported in math package, so it can be refered, used, when importing math package. math.Pi
 
 ** Functions : func func_name(parameters) return-type {body}
-*  #### Function can return any number of results. 
+*  #### Function can return multiple results. specified in ()
 * assignment x := 10   a, b := 2, 3
 * named return values 
+
+** Variables
+* If outside any function, var or const is mandatory.
+* var i,j int OR var i,j int = 2, 3 
+* := is shorthand for defining and intialising
+* i,j int := 2, 3 OR i,j := 2, 3 -> Type inference.
+* const x int = 10 : constant variables
+* unused variables and imports throw error
+
+** Conditional Flows
+* Only for loop is present.
+* If can have short initialisation statement
+* switch is present. No break statement is needed.
+* Defer : defers (adjourns) the function call till the function returns. defer function_call.
+* defer calls are pushed onto stack and called in LIFO manner.
+
+
+** pointers : pointing to variables  a := &x, *a -> value at x
+* struct : collection of variable fields
+* type struct_name struct {
+}
+* struct_var := struct_name{values}
+* arrays : fixed size, var arr [5]int.
+* slices : dynamic sized, reference to arrays, do not store data, just refer to array.
+* we use buit-in make function to create dynamic arrays, sl = make([]int, 5) : creates zeroed array and returns its reference.
+* slices use lower bound and upper bound; [ ) : arr[1:3]
+* slice has length and capacity : len(s) - number of elements in the slice , cap(s) - number of elements in underlying array starting from first elemt of the slice.
+* for each loop implementation with for and range.
+
+** METHODS
+
+* type keyword : declaration of types, no memory allocation.
+* methods are created on types, struct or non-struct.
+* methods are functions only but with receivers.
+* func (v Vector) abs() float64 { }
+* value recievers and pointer receivers

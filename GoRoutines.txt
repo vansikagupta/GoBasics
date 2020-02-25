@@ -1,0 +1,9 @@
+* just write "go" in front of any function to make it a concurrent go routine.
+* go routines are non blocking and are processed concurrently.
+* in order to make sure all go routines have been executed before exiting the program, we synchronise them using "sync" package
+
+* For example we can use  sync.WaitGroup, everytime we call a go routine, we do wg.Add(1)
+and then we wait with wg.Wait() until that routine is done executing
+* From within the function we do wg.Done() to notify that it is done executing.
+
+*** We should defer wg.Done() so that in case of error we don't end up waiting forever

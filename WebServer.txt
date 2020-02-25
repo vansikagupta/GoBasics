@@ -1,0 +1,26 @@
+* Go has built-in web-server
+* standard library net/http provides ResponseWriter and Request : net/http provides HTPP client and server implemenations.
+* http.ListenAndServe :
+* ServeMux : multiplexer that matches incoming requests urls and matches against handler functions.
+* http.HandleFunc uses default ServeMux
+* Handler functions should be of the signature func(w http.RequestWriter, r *http.Request)
+* Using w we write to the response : w.Write([]bytes), fmt.Fprinf(w, "msg")- we can also write HTML here.
+* we can set headers on w with w.Header().Set(.....) 
+* we can write status codes with w.WriteHeader()
+
+* We are creating a News aggregator Web App. It will read RSS feeds (in XML format) from indiatoday.in
+
+* Accessing information from the Internet.
+* net/http
+* response, error = http.Get("url") OR response, _ = 
+* Always we need to close the response body so better use  : defer reponse.Body.Close()
+* we use _ for a variable which we do not intent to use.
+* response is in bytes : read this ioutil.ReadAll(response), we need to convert into string.
+
+* Parsing the XML
+* standard library : encoding/xml,   xml.Unmarshal(bytes, &s)
+* bytes conatins byte information that we need to UnMarshall into a struct variable.
+* s is that struct variable. So we need to create type struct for that XML.
+
+* Using HTML Templates
+* import html/template
