@@ -1,0 +1,77 @@
+* import 'testing' package, cmd go test to run tests.
+* test is created by writing a func beginning with Test.
+* testing.T is the testing structure
+
+* Ginkgo- Go unit testing framework, provides for BDD style 
+* best suited with Gomega matcher library
+* go get -u github.com/onsi/ginkgo/ginkgo
+* go get -u github.com/onsi/gomega
+ 
+* say, we want to test the book package
+* In the package directory, generate a test suite: ginkgo bootstrap
+
+package books_test
+
+import (
+    . "github.com/onsi/ginkgo"
+    . "github.com/onsi/gomega"
+    "testing"
+)
+
+func TestBooks(t *testing.T) {
+    RegisterFailHandler(Fail)
+    RunSpecs(t, "Books Suite")
+}
+
+* generates boot_test package that imports book to test
+* the func TestBook generated is the testing test.
+* gingko or go test: will run the test (TestBook)
+*  RegisterFailHandler(Fail) is the sole connection bet Ginkgo(Fail) and Gomega(RegisterFailHandler)
+* RunSpecs : tells Ginkgo to start the test suite. If any test fails, Ginkgo automatically fails testing.T
+
+## This shows how Ginkgo works on top of Go's testing package.
+
+## Now adding specs to test, we can add in suite itself or in seperate test files
+
+** we add test specs in seperate test files 
+* to generate test file: ginkgo generate
+
+var _ = Describe("Book", func() {
+    var (
+        longBook  Book
+        shortBook Book
+    )
+
+    BeforeEach(func() {
+        longBook = Book{
+            Title:  "Les Miserables",
+            Author: "Victor Hugo",
+            Pages:  1488,
+        }
+
+        shortBook = Book{
+            Title:  "Fox In Socks",
+            Author: "Dr. Seuss",
+            Pages:  24,
+        }
+    })
+
+    Describe("Categorizing book length", func() {
+        Context("With more than 300 pages", func() {
+            It("should be a novel", func() {
+                Expect(longBook.CategoryByLength()).To(Equal("NOVEL"))
+            })
+        })
+
+        Context("With fewer than 300 pages", func() {
+            It("should be a short story", func() {
+                Expect(shortBook.CategoryByLength()).To(Equal("SHORT STORY"))
+            })
+        })
+    })
+})
+
+* at top-level, Ginkgo's Describe function is initialised to a var. This "trick" allows evaluation of Describe without wrapping it into any init().
+* BeforeEach sets up state of specs
+* It specifies a single spec
+* Gomega's Expect is a matcher

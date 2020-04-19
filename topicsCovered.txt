@@ -1,0 +1,15 @@
+* go run, go build
+* Basic types : int float bool
+* Composite types: array, slice, map, struct
+* functions, methods : act upon given subject, pointer/value receiver.
+
+6th March
+* interfaces: types implementing all methods declared in an interface are said to satisfy the interface. Interface name be be used to generically refer to all types satisfying the interface.
+* Reading Console input: bufio.NewReader || bufio.NewScanner
+* Executing Sytem Commands from go: like ls, pwd
+* Go modules: dependency management. go mod init git-repo
+* go build will automatically detect the imports and add to go.mod file. It will update existing dependency and not touch unused ones.
+***** go mod tidy will do the same but clean the unused ones as well.
+
+7th March
+* Protocol Buffer with Go: it is data foramt like JSON and XML

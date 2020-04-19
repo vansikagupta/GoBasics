@@ -1,0 +1,23 @@
+* Describe and Context are containers that are used to organise the specs
+* 'It' is the test spec
+* BeforeEach and AfterEach to build up or tear down common set-ups for test.
+# Always initialize your variables in BeforeEach blocks.
+
+## Example 
+func TestAdd(t *testing.T){
+	ans := Add(1, 2)
+	if ans!= 3 {
+		t.Errorf("Result for input: %d, %d | want: %d", 1, 2, 3)
+	}
+}
+** both are similar
+It("can add two positive numbers", func(){
+		ans := Add(4,18)
+
+		Expect(ans).To(Equal(22))
+	})
+
+** Specify can be used instead of It
+** To remove duplication and use common setup across tests, BeforeEach blocks are used.
+** Use Describe to describe individual behaviours.
+** Use Context to exercise those behaviours under different circumstances.
